@@ -80,6 +80,7 @@ html{
 img {
     max-width: 100%;
     vertical-align: top;
+
 }
 
 /*
@@ -197,7 +198,9 @@ a:focus {
 }
 
 /* size modifiers */
-
+.o-row--dg{
+  background-color: #F7F7F7;
+}
 .o-row--lg {
     padding: 48px 24px 24px;
 }
@@ -224,7 +227,7 @@ a:focus {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 70.5em; /* 90 * 16px = 1440px */
+    max-width: 56.4em; /* 90 * 16px = 1440px */
 }
 
 /*
@@ -244,6 +247,7 @@ a:focus {
 
     .o-layout__item {
         width: 100%;
+        justify-content: space-between;
     }
 
 /* gutter modifiers, these affect o-layout__item too */
@@ -344,13 +348,123 @@ a:focus {
     align-content: space-between;
 }
 
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+  list-style: none;
+  padding: 0;
+}
+
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
+/*
+    Component: Nav
+    ---
+    Main navigation of the site
+*/
+
+.c-nav {
+  font-size: 18px;
+  line-height: 24px;
+}
+.c-nav--meta{
+
+}
+
+.c-nav__link {
+  text-decoration: none;
+  font-weight: 400;
+  padding: 8px 0;
+}
+
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
+  color: #202024
+}
+.c-nav__link:hover,
+.c-nav__link:focus {
+  color: #5051db
+}
+
+
+.c-nav__link--meta,
+.c-nav__link--meta:visited,
+.c-nav__link--meta:active {
+  color: #6c6c75
+}
+
+.is-selected .c-nav__link,
+.c-nav__link:hover,
+.c-nav__link:focus {
+  color: #5051db
+}
+
+@media (min-width: 768px) {
+    .c-nav__list {
+      display: flex;
+      margin-left: -16px;
+      margin-right: -16px;
+    }
+
+    .c-nav__link {
+      padding: 8px 16px;
+    }
+}
+/*
+    Component: header
+    ---
+    Main header of the website
+*/
+
+.c-header__nav {
+  display: none;
+}
+
+@media (min-width: 992px) {
+    .c-header { display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .c-header__nav {
+      display: block;
+    }
+}
+
+
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+
+.c-logo { height: 32px;      /*door een component te maken kan je dit op een andere plaats weer oproepen*/
+}
+
+.c-logo__symbol { height: 100%;
+  justify-content: flex-start;
+}
+
+@media (min-width: 768px) {
+    .c-logo__symbol { height: 40px;
+    }
+}
+
 
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
+.box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
 
 /*
     Utilities: max-width
@@ -673,9 +787,12 @@ a:focus {
     h3 {
         orphans: 3;
         widows: 3;
+                align-items: flex-start;
+                justify-content: flex-end;
     }
     h2,
     h3 {
         page-break-after: avoid;
+        /* justify-content: flex-end; */
     }
 }
